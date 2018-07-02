@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.audition.Objects.Card;
-import com.audition.Objects.Hand;
+import com.audition.Objects.PokerHand;
 import com.audition.Objects.PlayerOne;
 import com.audition.Objects.PlayerTwo;
 
@@ -42,14 +42,14 @@ public class InputReader {
 		return new PlayerOne(name);
 	}
 
-	public static List<Hand> readPlayerOnesCards(String fileName) {
-		List<Hand> cards = new ArrayList<>();
+	public static List<PokerHand> readPlayerOnesCards(String fileName) {
+		List<PokerHand> cards = new ArrayList<>();
 		Path pathToFile = Paths.get(fileName);
 		try (BufferedReader reader = Files.newBufferedReader(pathToFile)) {
 			String line = reader.readLine();
 			while (line != null) {
 				String[] setUp = line.split(" ");
-				Hand hand = setUpHandPlayerOne(setUp);
+				PokerHand hand = setUpHandPlayerOne(setUp);
 				cards.add(hand);
 				line = reader.readLine();
 			}
@@ -59,22 +59,22 @@ public class InputReader {
 		return cards;
 	}
 
-	private static Hand setUpHandPlayerOne(String[] meta) {
+	private static PokerHand setUpHandPlayerOne(String[] meta) {
 		Card card1 = new Card(meta[1].charAt(0), meta[1].charAt(1));
 		Card card2 = new Card(meta[2].charAt(0), meta[2].charAt(1));
 		Card card3 = new Card(meta[3].charAt(0), meta[3].charAt(1));
 		Card card4 = new Card(meta[4].charAt(0), meta[4].charAt(1));
 		Card card5 = new Card(meta[5].charAt(0), meta[5].charAt(1));
-		return new Hand(card1, card2, card3, card4, card5);
+		return new PokerHand(card1, card2, card3, card4, card5);
 	}
 
-	public static void addHandToPlayerOne(List<PlayerOne> games, List<Hand> hands, String fileName) throws IOException {
+	public static void addHandToPlayerOne(List<PlayerOne> games, List<PokerHand> hands, String fileName) throws IOException {
 		Path pathToFile = Paths.get(fileName);
 		List<String> linesInFile = Files.readAllLines(pathToFile);
 		int indexLine = 0;
 
 		for (PlayerOne game : games) {
-			for (Hand hand : hands) {
+			for (PokerHand hand : hands) {
 				if (linesInFile.get(indexLine).toString().contains(game.getName())
 						&& linesInFile.get(indexLine).toString().contains(hand.toString())
 						&& game.getHand().isEmpty()) {
@@ -117,14 +117,14 @@ public class InputReader {
 		return new PlayerTwo(name);
 	}
 
-	public static List<Hand> readPlayerTwosCards(String fileName) {
-		List<Hand> cards = new ArrayList<>();
+	public static List<PokerHand> readPlayerTwosCards(String fileName) {
+		List<PokerHand> cards = new ArrayList<>();
 		Path pathToFile = Paths.get(fileName);
 		try (BufferedReader reader = Files.newBufferedReader(pathToFile)) {
 			String line = reader.readLine();
 			while (line != null) {
 				String[] setUp = line.split(" ");
-				Hand hand = setUpHandPlayerTwo(setUp);
+				PokerHand hand = setUpHandPlayerTwo(setUp);
 				cards.add(hand);
 				line = reader.readLine();
 			}
@@ -134,23 +134,23 @@ public class InputReader {
 		return cards;
 	}
 
-	private static Hand setUpHandPlayerTwo(String[] meta) {
+	private static PokerHand setUpHandPlayerTwo(String[] meta) {
 		Card card1 = new Card(meta[8].charAt(0), meta[8].charAt(1));
 		Card card2 = new Card(meta[9].charAt(0), meta[9].charAt(1));
 		Card card3 = new Card(meta[10].charAt(0), meta[10].charAt(1));
 		Card card4 = new Card(meta[11].charAt(0), meta[11].charAt(1));
 		Card card5 = new Card(meta[12].charAt(0), meta[12].charAt(1));
-		return new Hand(card1, card2, card3, card4, card5);
+		return new PokerHand(card1, card2, card3, card4, card5);
 	}
 
-	public static void addHandToPlayerWhite(List<PlayerTwo> games, List<Hand> hands, String fileName)
+	public static void addHandToPlayerWhite(List<PlayerTwo> games, List<PokerHand> hands, String fileName)
 			throws IOException {
 		Path pathToFile = Paths.get(fileName);
 		List<String> linesInFile = Files.readAllLines(pathToFile);
 		int indexLine = 0;
 
 		for (PlayerTwo game : games) {
-			for (Hand hand : hands) {
+			for (PokerHand hand : hands) {
 				if (linesInFile.get(indexLine).toString().contains(game.getName())
 						&& linesInFile.get(indexLine).toString().contains(hand.toString())
 						&& game.getHand().isEmpty()) {

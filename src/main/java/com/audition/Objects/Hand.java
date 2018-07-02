@@ -1,14 +1,12 @@
 package com.audition.Objects;
 
-public class Hand extends PokerRuleable {
+public abstract class Hand {
 
-	public Hand(Card card1, Card card2, Card card3, Card card4, Card card5) {
-		this.card1 = card1;
-		this.card2 = card2;
-		this.card3 = card3;
-		this.card4 = card4;
-		this.card5 = card5;
-	}
+	protected Card card1;
+	protected Card card2;
+	protected Card card3;
+	protected Card card4;
+	protected Card card5;
 
 	public Card getCard1() {
 		return card1;

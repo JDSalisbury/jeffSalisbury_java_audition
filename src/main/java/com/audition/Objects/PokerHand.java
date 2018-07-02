@@ -6,16 +6,19 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-public abstract class PokerRuleable {
+public class PokerHand extends Hand {
+	private List<Card> cards = new ArrayList<>();
 
-	protected List<Card> cards = new ArrayList<>();
-	protected Map<String, Integer> occurences = new TreeMap<>();
-	protected int entries = 0;
-	protected Card card1;
-	protected Card card2;
-	protected Card card3;
-	protected Card card4;
-	protected Card card5;
+	private Map<String, Integer> occurences = new TreeMap<>();
+	private int entries = 0;
+
+	public PokerHand(Card card1, Card card2, Card card3, Card card4, Card card5) {
+		this.card1 = card1;
+		this.card2 = card2;
+		this.card3 = card3;
+		this.card4 = card4;
+		this.card5 = card5;
+	}
 
 	public void addCardsInHandToList() {
 		if (cards.size() == 0) {
@@ -82,7 +85,7 @@ public abstract class PokerRuleable {
 		return occurences.containsValue(2);
 	}
 
-	public boolean checkFor2Pairs() {
+	public boolean checkForTwoPairs() {
 		addCardsInHandToList();
 		addCardsToMapCounter();
 		int counter = 0;

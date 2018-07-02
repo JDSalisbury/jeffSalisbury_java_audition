@@ -9,14 +9,14 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.audition.Objects.Hand;
 import com.audition.Objects.PlayerOne;
+import com.audition.Objects.PokerHand;
 
 public class InputReaderTest {
 
 	private String inputFile = "input.txt";
 	private List<PlayerOne> gamesBlack = InputReader.readPlayerOneFromInputFile(inputFile);
-	private List<Hand> handsBlack = InputReader.readPlayerOnesCards(inputFile);
+	private List<PokerHand> handsBlack = InputReader.readPlayerOnesCards(inputFile);
 
 	@Test
 	public void shouldReadInputAndGrabAllOfPlayerOnesGames() {
@@ -31,10 +31,10 @@ public class InputReaderTest {
 	@Test
 	public void shouldAddHandsToPlayer() throws IOException {
 		InputReader.addHandToPlayerOne(gamesBlack, handsBlack, inputFile);
-		List<Hand> lastGameInInputFile = null;
+		List<PokerHand> lastGameInInputFile = null;
 		for (PlayerOne games : gamesBlack) {
 			lastGameInInputFile = games.getHand();
 		}
-		assertThat(lastGameInInputFile.size(), is(1));
+		assertThat(lastGameInInputFile.size(), is(not(0)));
 	}
 }

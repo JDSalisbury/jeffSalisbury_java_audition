@@ -6,7 +6,8 @@ import static org.junit.Assert.assertThat;
 import org.junit.Test;
 
 import com.audition.Objects.Card;
-import com.audition.Objects.Hand;
+import com.audition.Objects.PokerPlayer;
+import com.audition.Objects.PokerHand;
 import com.audition.Objects.Player;
 
 public class PlayerTest {
@@ -18,8 +19,8 @@ public class PlayerTest {
 
 	@Test
 	public void shouldReturnPlayersHand() {
-		Player underTest = new Player("Mark");
-		Hand testHand = new Hand(card1, card2, card3, card4, card5);
+		Player underTest = new PokerPlayer("Mark");
+		PokerHand testHand = new PokerHand(card1, card2, card3, card4, card5);
 		underTest.addHand(testHand);
 		assertThat(underTest.getHand(), contains(testHand));
 	}

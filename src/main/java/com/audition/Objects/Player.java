@@ -3,25 +3,19 @@ package com.audition.Objects;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Player {
-
-	protected List<Hand> cards = new ArrayList<>();
+public abstract class Player {
 	protected String name;
-
-	public Player(String name) {
-		this.name = name;
-	}
+	protected List<PokerHand> cards = new ArrayList<>();
 
 	public String getName() {
 		return name;
 	}
 
-	public List<Hand> getHand() {
+	public List<PokerHand> getHand() {
 		return cards;
 	}
 
-	public void addHand(Hand card) {
+	public void addHand(PokerHand card) {
 		cards.add(card);
 	}
-
 }
