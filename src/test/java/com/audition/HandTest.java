@@ -16,8 +16,8 @@ public class HandTest {
 	private Card card4 = new Card('Q', 'H');
 	private Card card5 = new Card('K', 'H');
 	private Card card6 = new Card('K', 'D');
+	private Card card7 = new Card('Q', 'D');
 	private Hand testHand = new Hand(card1, card2, card3, card4, card5);
-	private Hand twoOfAKind = new Hand(card1, card2, card3, card5, card6);
 
 	@Test
 	public void shouldReturnHighCardInHand() {
@@ -33,7 +33,16 @@ public class HandTest {
 
 	@Test
 	public void shouldLookForTwoOfAKind() {
+		Hand twoOfAKind = new Hand(card1, card2, card3, card5, card6);
+
 		assertThat(twoOfAKind.checkForTwoOfAKind(), is(true));
+	}
+
+	@Test
+	public void shouldLookForTwoPairs() {
+		Hand twoPairs = new Hand(card7, card2, card3, card5, card6);
+
+		assertThat(twoPairs.checkFor2Pairs(), is(true));
 	}
 
 }
