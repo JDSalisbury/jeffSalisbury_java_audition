@@ -68,7 +68,8 @@ public class InputReader {
 		return new PokerHand(card1, card2, card3, card4, card5);
 	}
 
-	public static void addHandToPlayerOne(List<PlayerOne> games, List<PokerHand> hands, String fileName) throws IOException {
+	public static void addHandToPlayerOne(List<PlayerOne> games, List<PokerHand> hands, String fileName)
+			throws IOException {
 		Path pathToFile = Paths.get(fileName);
 		List<String> linesInFile = Files.readAllLines(pathToFile);
 		int indexLine = 0;
@@ -143,7 +144,7 @@ public class InputReader {
 		return new PokerHand(card1, card2, card3, card4, card5);
 	}
 
-	public static void addHandToPlayerWhite(List<PlayerTwo> games, List<PokerHand> hands, String fileName)
+	public static void addHandToPlayerTwo(List<PlayerTwo> games, List<PokerHand> hands, String fileName)
 			throws IOException {
 		Path pathToFile = Paths.get(fileName);
 		List<String> linesInFile = Files.readAllLines(pathToFile);
