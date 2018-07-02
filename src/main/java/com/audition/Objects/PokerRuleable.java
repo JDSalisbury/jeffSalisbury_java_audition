@@ -111,4 +111,27 @@ public abstract class PokerRuleable {
 		return occurences.containsValue(2) && occurences.containsValue(3);
 	}
 
+	public boolean checkForFlush() {
+		addCardsInHandToList();
+		int hCount = 0;
+		int dCount = 0;
+		int sCount = 0;
+		int cCount = 0;
+		for (Card card : cards) {
+			if (card.getSuit() == 'H') {
+				hCount++;
+			}
+			if (card.getSuit() == 'D') {
+				dCount++;
+			}
+			if (card.getSuit() == 'S') {
+				sCount++;
+			}
+			if (card.getSuit() == 'C') {
+				cCount++;
+			}
+		}
+		return hCount == 5 || dCount == 5 || sCount == 5 || cCount == 5;
+	}
+
 }
