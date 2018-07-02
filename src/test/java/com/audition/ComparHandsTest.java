@@ -54,7 +54,7 @@ public class ComparHandsTest {
 		mark.addHand(testTiedHand);
 		tom.addHand(testTiedHand);
 		CompareHands.comparePlayerHands(mark, tom);
-		assertThat(out.toString(), is("Tie"));
+		assertThat(out.toString(), is("Tie."));
 
 	}
 
@@ -66,7 +66,18 @@ public class ComparHandsTest {
 		mark.addHand(testHandForPlayerOne);
 		tom.addHand(testHandForPlayerTwo);
 		CompareHands.comparePlayerHands(mark, tom);
-		assertThat(out.toString(), is("Mark Ties with Tom. - with StraightFlush! KH high Mark wins with KH high"));
+		assertThat(out.toString(), is("Mark Ties with Tom. - with StraightFlush! KH high. Mark wins with KH high"));
+	}
+
+	@Test
+	public void shouldCompareHandsToSeeWhoWinsInATieWith4OfAKind() {
+		System.setOut(new PrintStream(out));
+		PokerHand testHandForPlayerOne = new PokerHand(card1, card5, card5, card5, card5);
+		PokerHand testHandForPlayerTwo = new PokerHand(card1, card7, card7, card7, card7);
+		mark.addHand(testHandForPlayerOne);
+		tom.addHand(testHandForPlayerTwo);
+		CompareHands.comparePlayerHands(mark, tom);
+		assertThat(out.toString(), is("Mark Ties with Tom. - with StraightFlush! KH high. Mark wins with KH high"));
 	}
 
 }

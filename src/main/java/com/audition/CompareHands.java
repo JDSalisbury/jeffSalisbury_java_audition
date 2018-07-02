@@ -24,7 +24,53 @@ public class CompareHands {
 		} else if (playerOneHandValue < playerTwoHandValue) {
 			System.out.print(name2.getName() + " wins. - with " + twoWinCon);
 		} else if (playerOneHandValue == playerTwoHandValue) {
-			System.out.print("Tie");
+			resolveTie(name, name2);
+
+		}
+	}
+
+	private static void resolveTie(PlayerOne name, PlayerTwo name2) {
+		tieOnStraightFlush(name, name2);
+
+	}
+
+	private static void tieOnStraightFlush(PlayerOne name, PlayerTwo name2) {
+		if (playerOneHandValue == 22 && playerTwoHandValue == 22) {
+			tieWithNothing(name, name2);
+		}
+	}
+
+	private static void tieWithNothing(PlayerOne name, PlayerTwo name2) {
+		int playerOneTieHandValue = 0;
+		int playerTwoTieHandValue = 0;
+		playerOneTieHandValue = name.getHighCardInHand().getValue();
+		playerTwoTieHandValue = name2.getHighCardInHand().getValue();
+		if (playerOneTieHandValue > playerTwoTieHandValue) {
+			System.out.print(name.getName() + " Ties with " + name2.getName() + ". - with " + oneWinCon + ". "
+					+ name.getName() + " wins with " + name.getHighCardInHand() + " high");
+		} else if (playerOneTieHandValue < playerTwoTieHandValue) {
+			System.out.print(name2.getName() + " Ties with " + name.getName() + ". - with " + twoWinCon + ". "
+					+ name2.getName() + " wins with " + name2.getHighCardInHand() + " high");
+		} else if (playerOneTieHandValue == playerTwoTieHandValue && playerOneTieHandValue > 0
+				&& playerTwoTieHandValue > 0) {
+			nextHighestCard(name, name2);
+
+		}
+	}
+
+	private static void nextHighestCard(PlayerOne name, PlayerTwo name2) {
+		int playerOneTieHandValue;
+		int playerTwoTieHandValue;
+		playerOneTieHandValue = name.getNextHighestCardInHand().getValue();
+		playerTwoTieHandValue = name2.getNextHighestCardInHand().getValue();
+		if (playerOneTieHandValue > playerTwoTieHandValue) {
+			System.out.print(name.getName() + " Ties with " + name2.getName() + ". - with " + oneWinCon + ". "
+					+ name.getName() + " wins with " + name.getNextHighestCardInHand() + " high");
+		} else if (playerOneTieHandValue < playerTwoTieHandValue) {
+			System.out.print(name2.getName() + " Ties with " + name2.getName() + ". - with " + twoWinCon + ". "
+					+ name2.getName() + " wins with " + name2.getNextHighestCardInHand() + " high");
+		} else if (playerOneTieHandValue == playerTwoTieHandValue) {
+			System.out.print("Tie.");
 
 		}
 	}
