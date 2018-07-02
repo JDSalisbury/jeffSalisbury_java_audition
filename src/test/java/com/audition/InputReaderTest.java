@@ -22,5 +22,6 @@ public class InputReaderTest {
 	@Test
 	public void shouldReadInputAndGrabAllOfPlayerOnesHands() {
 		List<Hand> handsBlack = InputReader.readPlayerOnesCards("input.txt");
+		assertThat(handsBlack.size(), is(not(0)));
 	}
 }
