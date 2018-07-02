@@ -40,4 +40,20 @@ public abstract class PokerRuleable {
 		return highestCard;
 	}
 
+	public Card getNextHighestCard() {
+		addCardsInHandToList();
+		Card highCard = getHighCard();
+		char rank = 0;
+		char suit = 0;
+		int almostHighCard = 0;
+		for (Card card : cards) {
+			if (card.getValue() >= almostHighCard && card.getValue() != highCard.getValue()) {
+				rank = card.getRank();
+				suit = card.getSuit();
+			}
+		}
+		Card highestCard = new Card(rank, suit);
+		return highestCard;
+	}
+
 }
