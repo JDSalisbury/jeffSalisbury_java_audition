@@ -154,4 +154,7 @@ public abstract class PokerRuleable {
 		return checkValue == 4;
 	}
 
+	public boolean checkForStraightFlush() {
+		return checkForStraight() && checkForFlush();
+	}
 }
