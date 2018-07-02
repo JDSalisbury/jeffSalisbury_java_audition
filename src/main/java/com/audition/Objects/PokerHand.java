@@ -160,4 +160,17 @@ public class PokerHand extends Hand {
 	public boolean checkForStraightFlush() {
 		return checkForStraight() && checkForFlush();
 	}
+
+	public int checkValueForTieInFourOfAKind() {
+		int keyNumber = 0;
+		for (Map.Entry<String, Integer> entry : occurences.entrySet()) {
+			if (entry.getValue() == 4) {
+				keyNumber = Integer.parseInt(entry.getKey());
+			} else {
+				continue;
+			}
+		}
+		return keyNumber;
+	}
+
 }

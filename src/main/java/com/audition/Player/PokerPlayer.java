@@ -114,4 +114,12 @@ public class PokerPlayer extends Player {
 		return answer;
 	}
 
+	public int getFourOfAKindTieValue() {
+		int x = 0;
+		for (PokerHand hand : cards) {
+			x = hand.checkValueForTieInFourOfAKind();
+		}
+		return x;
+	}
+
 }

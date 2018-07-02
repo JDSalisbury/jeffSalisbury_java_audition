@@ -77,7 +77,7 @@ public class ComparHandsTest {
 		mark.addHand(testHandForPlayerOne);
 		tom.addHand(testHandForPlayerTwo);
 		CompareHands.comparePlayerHands(mark, tom);
-		assertThat(out.toString(), is("Mark Ties with Tom. - with StraightFlush! KH high. Mark wins with KH high"));
+		assertThat(out.toString(), is("Mark Ties with Tom. - with Four of a Kind! Mark wins with 13 high"));
 	}
 
 }

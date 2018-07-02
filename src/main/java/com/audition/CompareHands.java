@@ -31,12 +31,27 @@ public class CompareHands {
 
 	private static void resolveTie(PlayerOne name, PlayerTwo name2) {
 		tieOnStraightFlush(name, name2);
+		tieOnFourOfAKind(name, name2);
 
 	}
 
 	private static void tieOnStraightFlush(PlayerOne name, PlayerTwo name2) {
 		if (playerOneHandValue == 22 && playerTwoHandValue == 22) {
 			tieWithNothing(name, name2);
+		}
+	}
+
+	private static void tieOnFourOfAKind(PlayerOne name, PlayerTwo name2) {
+		if (playerOneHandValue == 21 && playerTwoHandValue == 21) {
+			if (name.getFourOfAKindTieValue() > name2.getFourOfAKindTieValue()) {
+				System.out.print(name.getName() + " Ties with " + name2.getName() + ". - with " + oneWinCon + " "
+						+ name.getName() + " wins with " + name.getFourOfAKindTieValue() + " high");
+			} else if (name.getFourOfAKindTieValue() < name2.getFourOfAKindTieValue()) {
+				System.out.print(name2.getName() + " Ties with " + name.getName() + ". - with " + twoWinCon + " "
+						+ name2.getName() + " wins with " + name2.getFourOfAKindTieValue() + " high");
+			} else if (name.getFourOfAKindTieValue() == name2.getFourOfAKindTieValue()) {
+				tieWithNothing(name, name2);
+			}
 		}
 	}
 
