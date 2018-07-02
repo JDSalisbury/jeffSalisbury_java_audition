@@ -9,8 +9,8 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.audition.Objects.PlayerOne;
 import com.audition.Objects.PokerHand;
+import com.audition.Player.PlayerOne;
 
 public class InputReaderTest {
 

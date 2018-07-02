@@ -9,9 +9,9 @@ import java.io.PrintStream;
 import org.junit.Test;
 
 import com.audition.Objects.Card;
-import com.audition.Objects.PlayerOne;
-import com.audition.Objects.PlayerTwo;
 import com.audition.Objects.PokerHand;
+import com.audition.Player.PlayerOne;
+import com.audition.Player.PlayerTwo;
 
 public class ComparHandsTest {
 	private Card card1 = new Card('9', 'H');
@@ -20,20 +20,41 @@ public class ComparHandsTest {
 	private Card card4 = new Card('Q', 'H');
 	private Card card5 = new Card('K', 'H');
 	private Card card6 = new Card('7', 'D');
-	private PokerHand testHandForPlayerOne = new PokerHand(card1, card2, card3, card4, card5);
-	private PokerHand testHandForPlayerTwo = new PokerHand(card1, card2, card3, card4, card6);
+	private PlayerOne mark = new PlayerOne("Mark");
+	private PlayerTwo tom = new PlayerTwo("Tom");
+	private ByteArrayOutputStream out = new ByteArrayOutputStream();
+	private PokerHand testTiedHand = new PokerHand(card1, card2, card3, card4, card5);
 
 	@Test
 	public void shouldCompareHandsToSeeWhosWasTheWinner() {
-		ByteArrayOutputStream out = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(out));
-
-		PlayerOne mark = new PlayerOne("Mark");
-		PlayerTwo tom = new PlayerTwo("Tom");
+		PokerHand testHandForPlayerOne = new PokerHand(card1, card2, card3, card4, card5);
+		PokerHand testHandForPlayerTwo = new PokerHand(card1, card2, card3, card4, card6);
 		mark.addHand(testHandForPlayerOne);
 		tom.addHand(testHandForPlayerTwo);
 		CompareHands.comparePlayerHands(mark, tom);
 		assertThat(out.toString(), is("Mark wins. - with StraightFlush! KH high"));
+	}
+
+	@Test
+	public void shouldCompareHandsToSeeWhosWasTheWinnerShouldBeTom() {
+		System.setOut(new PrintStream(out));
+		PokerHand testHandForPlayerOne = new PokerHand(card1, card2, card3, card4, card5);
+		PokerHand testHandForPlayerTwo = new PokerHand(card1, card2, card3, card4, card6);
+		tom.addHand(testHandForPlayerOne);
+		mark.addHand(testHandForPlayerTwo);
+		CompareHands.comparePlayerHands(mark, tom);
+		assertThat(out.toString(), is("Tom wins. - with StraightFlush! KH high"));
+	}
+
+	@Test
+	public void shouldCompareHandsToSeeIfTheyAreTied() {
+		System.setOut(new PrintStream(out));
+		mark.addHand(testTiedHand);
+		tom.addHand(testTiedHand);
+		CompareHands.comparePlayerHands(mark, tom);
+		assertThat(out.toString(), is("Tie"));
+
 	}
 
 }

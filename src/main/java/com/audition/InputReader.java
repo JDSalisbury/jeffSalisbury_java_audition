@@ -10,8 +10,8 @@ import java.util.List;
 
 import com.audition.Objects.Card;
 import com.audition.Objects.PokerHand;
-import com.audition.Objects.PlayerOne;
-import com.audition.Objects.PlayerTwo;
+import com.audition.Player.PlayerOne;
+import com.audition.Player.PlayerTwo;
 
 public class InputReader {
 	public static List<PlayerOne> readPlayerOneFromInputFile(String fileName) {

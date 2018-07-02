@@ -6,9 +6,9 @@ import static org.junit.Assert.assertThat;
 import org.junit.Test;
 
 import com.audition.Objects.Card;
-import com.audition.Objects.PokerPlayer;
+import com.audition.Player.Player;
+import com.audition.Player.PokerPlayer;
 import com.audition.Objects.PokerHand;
-import com.audition.Objects.Player;
 
 public class PlayerTest {
 	private Card card1 = new Card('9', 'H');

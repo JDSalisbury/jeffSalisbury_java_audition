@@ -1,7 +1,7 @@
 package com.audition;
 
-import com.audition.Objects.PlayerOne;
-import com.audition.Objects.PlayerTwo;
+import com.audition.Player.PlayerOne;
+import com.audition.Player.PlayerTwo;
 
 public class CompareHands {
 
@@ -22,7 +22,7 @@ public class CompareHands {
 		if (playerOneHandValue > playerTwoHandValue) {
 			System.out.print(name.getName() + " wins. - with " + oneWinCon);
 		} else if (playerOneHandValue < playerTwoHandValue) {
-			System.out.print(name.getName() + " wins. - with " + twoWinCon);
+			System.out.print(name2.getName() + " wins. - with " + twoWinCon);
 		} else if (playerOneHandValue == playerTwoHandValue) {
 			System.out.print("Tie");
 

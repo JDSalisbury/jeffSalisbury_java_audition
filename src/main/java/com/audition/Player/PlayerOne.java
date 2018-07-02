@@ -1,4 +1,4 @@
-package com.audition.Objects;
+package com.audition.Player;
 
 public class PlayerOne extends PokerPlayer {
 

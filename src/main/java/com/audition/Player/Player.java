@@ -1,7 +1,9 @@
-package com.audition.Objects;
+package com.audition.Player;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.audition.Objects.PokerHand;
 
 public abstract class Player {
 	protected String name;
