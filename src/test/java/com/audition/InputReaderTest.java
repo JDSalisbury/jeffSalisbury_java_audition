@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.junit.Test;
 
+import com.audition.Objects.Hand;
 import com.audition.Objects.PlayerOne;
 
 public class InputReaderTest {
@@ -18,4 +19,8 @@ public class InputReaderTest {
 		assertThat(gamesBlack.size(), is(not(0)));
 	}
 
+	@Test
+	public void shouldReadInputAndGrabAllOfPlayerOnesHands() {
+		List<Hand> handsBlack = InputReader.readPlayerOnesCards("input.txt");
+	}
 }
