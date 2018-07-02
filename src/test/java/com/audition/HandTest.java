@@ -23,4 +23,10 @@ public class HandTest {
 		assertThat(theHighCardInHand, is(card5));
 	}
 
+	@Test
+	public void shouldReturn2ndHighestCardInHand() {
+		Card theSecondHighest = testHand.getNextHighestCard();
+		assertThat(theSecondHighest, is(card4));
+	}
+
 }
