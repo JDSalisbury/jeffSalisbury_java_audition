@@ -12,6 +12,10 @@ public class Player {
 		this.name = name;
 	}
 
+	public String getName() {
+		return name;
+	}
+
 	public List<Hand> getHand() {
 		return cards;
 	}

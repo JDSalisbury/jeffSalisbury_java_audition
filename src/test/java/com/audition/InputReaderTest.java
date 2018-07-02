@@ -14,8 +14,9 @@ import com.audition.Objects.PlayerOne;
 
 public class InputReaderTest {
 
-	private List<PlayerOne> gamesBlack = InputReader.readPlayerOneFromInputFile("input.txt");
-	private List<Hand> handsBlack = InputReader.readPlayerOnesCards("input.txt");
+	private String inputFile = "input.txt";
+	private List<PlayerOne> gamesBlack = InputReader.readPlayerOneFromInputFile(inputFile);
+	private List<Hand> handsBlack = InputReader.readPlayerOnesCards(inputFile);
 
 	@Test
 	public void shouldReadInputAndGrabAllOfPlayerOnesGames() {
@@ -29,12 +30,11 @@ public class InputReaderTest {
 
 	@Test
 	public void shouldAddHandsToPlayer() throws IOException {
-		InputReader.addHandToPlayerOne(gamesBlack, handsBlack, "input.txt");
+		InputReader.addHandToPlayerOne(gamesBlack, handsBlack, inputFile);
 		List<Hand> lastGameInInputFile = null;
 		for (PlayerOne games : gamesBlack) {
 			lastGameInInputFile = games.getHand();
 		}
 		assertThat(lastGameInInputFile.size(), is(1));
-
 	}
 }
