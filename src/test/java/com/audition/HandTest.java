@@ -63,4 +63,9 @@ public class HandTest {
 		Hand fullHouse = new Hand(card5, card6, card7, card8, card9);
 		assertThat(fullHouse.checkForFullHouse(), is(true));
 	}
+
+	@Test
+	public void shouldLookForFlush() {
+		assertThat(testHand.checkForFlush(), is(true));
+	}
 }
