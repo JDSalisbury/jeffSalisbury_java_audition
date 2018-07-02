@@ -93,4 +93,10 @@ public abstract class PokerRuleable {
 		return counter == 2;
 	}
 
+	public boolean checkForThreeOfAKind() {
+		addCardsInHandToList();
+		addCardsToMapCounter();
+		return occurences.containsValue(3);
+	}
+
 }
