@@ -2,10 +2,14 @@ package com.audition.Objects;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public abstract class PokerRuleable {
 
 	protected List<Card> cards = new ArrayList<>();
+	protected Map<String, Integer> occurences = new TreeMap<>();
+	protected int entries = 0;
 	protected Card card1;
 	protected Card card2;
 	protected Card card3;
@@ -19,6 +23,21 @@ public abstract class PokerRuleable {
 			cards.add(card3);
 			cards.add(card4);
 			cards.add(card5);
+		}
+	}
+
+	public void addCardsToMapCounter() {
+		for (Card card : cards) {
+			String cardOc = Integer.toString(card.getValue());
+			if (entries < 5) {
+				if (occurences.containsKey(cardOc)) {
+					occurences.put(cardOc, occurences.get(cardOc) + 1);
+					entries++;
+				} else {
+					occurences.put(cardOc, 1);
+					entries++;
+				}
+			}
 		}
 	}
 
@@ -54,6 +73,12 @@ public abstract class PokerRuleable {
 		}
 		Card highestCard = new Card(rank, suit);
 		return highestCard;
+	}
+
+	public boolean checkForTwoOfAKind() {
+		addCardsInHandToList();
+		addCardsToMapCounter();
+		return occurences.containsValue(2);
 	}
 
 }
