@@ -19,7 +19,8 @@ public class ComparHandsTest {
 	private Card card3 = new Card('J', 'H');
 	private Card card4 = new Card('Q', 'H');
 	private Card card5 = new Card('K', 'H');
-	private Card card6 = new Card('7', 'D');
+	private Card card6 = new Card('7', 'H');
+	private Card card7 = new Card('8', 'H');
 	private PlayerOne mark = new PlayerOne("Mark");
 	private PlayerTwo tom = new PlayerTwo("Tom");
 	private ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -55,6 +56,17 @@ public class ComparHandsTest {
 		CompareHands.comparePlayerHands(mark, tom);
 		assertThat(out.toString(), is("Tie"));
 
+	}
+
+	@Test
+	public void shouldCompareHandsToSeeWhoWinsOnATieShouldGoToNextHighCard() {
+		System.setOut(new PrintStream(out));
+		PokerHand testHandForPlayerOne = new PokerHand(card1, card2, card3, card4, card5);
+		PokerHand testHandForPlayerTwo = new PokerHand(card1, card2, card3, card6, card7);
+		mark.addHand(testHandForPlayerOne);
+		tom.addHand(testHandForPlayerTwo);
+		CompareHands.comparePlayerHands(mark, tom);
+		assertThat(out.toString(), is("Mark Ties with Tom. - with StraightFlush! KH high Mark wins with KH high"));
 	}
 
 }
