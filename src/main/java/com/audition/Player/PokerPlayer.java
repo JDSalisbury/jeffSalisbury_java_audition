@@ -114,6 +114,30 @@ public class PokerPlayer extends Player {
 		return answer;
 	}
 
+	public int getPairTieValue() {
+		int x = 0;
+		for (PokerHand hand : cards) {
+			x = hand.checkValueForTieInPair();
+		}
+		return x;
+	}
+
+	public int get2PairTieValue() {
+		int x = 0;
+		for (PokerHand hand : cards) {
+			x = hand.checkValueForTieInPair();
+		}
+		return x;
+	}
+
+	public int getThreeOfAKindTieValue() {
+		int x = 0;
+		for (PokerHand hand : cards) {
+			x = hand.checkValueForTieInThreeOfAKind();
+		}
+		return x;
+	}
+
 	public int getFourOfAKindTieValue() {
 		int x = 0;
 		for (PokerHand hand : cards) {

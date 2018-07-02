@@ -173,4 +173,43 @@ public class PokerHand extends Hand {
 		return keyNumber;
 	}
 
+	public int checkValueForTieIn2Pairs() {
+		int keyNumber = 0;
+		for (Map.Entry<String, Integer> entry : occurences.entrySet()) {
+			if (entry.getValue() == 2) {
+				if (Integer.parseInt(entry.getKey()) > keyNumber) {
+					keyNumber = Integer.parseInt(entry.getKey());
+				}
+			} else {
+				continue;
+			}
+		}
+		return keyNumber;
+	}
+
+	public int checkValueForTieInPair() {
+		int keyNumber = 0;
+		for (Map.Entry<String, Integer> entry : occurences.entrySet()) {
+			if (entry.getValue() == 2) {
+				keyNumber = Integer.parseInt(entry.getKey());
+			} else {
+				continue;
+			}
+		}
+		return keyNumber;
+
+	}
+
+	public int checkValueForTieInThreeOfAKind() {
+		int keyNumber = 0;
+		for (Map.Entry<String, Integer> entry : occurences.entrySet()) {
+			if (entry.getValue() == 3) {
+				keyNumber = Integer.parseInt(entry.getKey());
+			} else {
+				continue;
+			}
+		}
+		return keyNumber;
+	}
+
 }
