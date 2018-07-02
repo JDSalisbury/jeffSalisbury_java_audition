@@ -5,6 +5,10 @@ import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
+import com.audition.Objects.Card;
+import com.audition.Objects.Hand;
+import com.audition.Objects.Player;
+
 public class PlayerTest {
 	private Card card1 = new Card('9', 'H');
 	private Card card2 = new Card('T', 'H');
@@ -19,4 +23,5 @@ public class PlayerTest {
 		underTest.addHand(testHand);
 		assertThat(underTest.getHand(), contains(testHand));
 	}
+
 }

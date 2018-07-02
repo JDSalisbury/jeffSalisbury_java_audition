@@ -1,4 +1,4 @@
-package com.audition;
+package com.audition.Objects;
 
 public class Hand {
 
