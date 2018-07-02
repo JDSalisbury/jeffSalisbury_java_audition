@@ -81,4 +81,16 @@ public abstract class PokerRuleable {
 		return occurences.containsValue(2);
 	}
 
+	public boolean checkFor2Pairs() {
+		addCardsInHandToList();
+		addCardsToMapCounter();
+		int counter = 0;
+		for (Map.Entry<String, Integer> pair : occurences.entrySet()) {
+			if (pair.getValue() == 2) {
+				counter++;
+			}
+		}
+		return counter == 2;
+	}
+
 }

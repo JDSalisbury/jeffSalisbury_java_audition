@@ -17,6 +17,7 @@ public class HandTest {
 	private Card card5 = new Card('K', 'H');
 	private Card card6 = new Card('K', 'D');
 	private Card card7 = new Card('Q', 'D');
+	private Card card8 = new Card('Q', 'S');
 	private Hand testHand = new Hand(card1, card2, card3, card4, card5);
 
 	@Test
@@ -40,9 +41,14 @@ public class HandTest {
 
 	@Test
 	public void shouldLookForTwoPairs() {
-		Hand twoPairs = new Hand(card7, card2, card3, card5, card6);
-
+		Hand twoPairs = new Hand(card7, card4, card3, card5, card6);
 		assertThat(twoPairs.checkFor2Pairs(), is(true));
+	}
+
+	@Test
+	public void shouldLookForThreeOfAKind() {
+		Hand threeOfAKind = new Hand(card7, card4, card3, card8, card6);
+		assertThat(threeOfAKind.checkForThreeOfAKind(), is(true));
 	}
 
 }
