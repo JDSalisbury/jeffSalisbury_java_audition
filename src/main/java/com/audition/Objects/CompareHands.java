@@ -1,4 +1,4 @@
-package com.audition;
+package com.audition.Objects;
 
 import com.audition.Player.PlayerOne;
 import com.audition.Player.PlayerTwo;

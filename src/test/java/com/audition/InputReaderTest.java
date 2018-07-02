@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.junit.Test;
 
+import com.audition.Input.InputReader;
 import com.audition.Objects.PokerHand;
 import com.audition.Player.PlayerOne;
 

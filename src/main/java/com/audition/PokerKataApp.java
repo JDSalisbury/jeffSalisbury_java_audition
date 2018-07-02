@@ -1,12 +1,10 @@
 package com.audition;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 
-import com.audition.Objects.PokerHand;
+import com.audition.Input.InputToGameList;
+import com.audition.Input.Report;
 import com.audition.Player.PlayerOne;
 import com.audition.Player.PlayerTwo;
 
@@ -14,27 +12,10 @@ public class PokerKataApp {
 
 	public static void main(String[] args) throws IOException {
 
-		List<PlayerOne> gamesOne = InputReader.readPlayerOneFromInputFile("input.txt");
-		List<PokerHand> handsOne = InputReader.readPlayerOnesCards("input.txt");
-		InputReader.addHandToPlayerOne(gamesOne, handsOne, "input.txt");
-		List<PlayerTwo> gamesTwo = InputReader.readPlayerTwoFromInputFile("input.txt");
-		List<PokerHand> handsTwo = InputReader.readPlayerTwosCards("input.txt");
-		InputReader.addHandToPlayerTwo(gamesTwo, handsTwo, "input.txt");
+		List<PlayerOne> gamesOne = InputToGameList.playerOneStart();
+		List<PlayerTwo> gamesTwo = InputToGameList.playerTwoStart();
 
-		int locationInFile = 0;
-		Path pathToFile = Paths.get("input.txt");
-		List<String> linesInFile = Files.readAllLines(pathToFile);
-		for (PlayerOne name : gamesOne) {
-			for (PlayerTwo name2 : gamesTwo) {
-				if (linesInFile.get(locationInFile).toString().contains(name.toString())
-						&& linesInFile.get(locationInFile).toString().contains(name2.toString())) {
-					CompareHands.comparePlayerHands(name, name2);
-					if (locationInFile < linesInFile.size() - 1)
-						locationInFile++;
-				}
-
-			}
-		}
+		Report.reportPerLine(gamesOne, gamesTwo);
 
 	}
 }

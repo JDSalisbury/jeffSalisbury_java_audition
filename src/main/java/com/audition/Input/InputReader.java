@@ -1,4 +1,4 @@
-package com.audition;
+package com.audition.Input;
 
 import java.io.BufferedReader;
 import java.io.IOException;

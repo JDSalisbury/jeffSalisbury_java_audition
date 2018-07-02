@@ -9,6 +9,7 @@ import java.io.PrintStream;
 import org.junit.Test;
 
 import com.audition.Objects.Card;
+import com.audition.Objects.CompareHands;
 import com.audition.Objects.PokerHand;
 import com.audition.Player.PlayerOne;
 import com.audition.Player.PlayerTwo;
