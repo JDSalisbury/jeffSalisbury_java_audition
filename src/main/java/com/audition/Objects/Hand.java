@@ -1,12 +1,6 @@
 package com.audition.Objects;
 
-public class Hand {
-
-	protected Card card1;
-	protected Card card2;
-	protected Card card3;
-	protected Card card4;
-	protected Card card5;
+public class Hand extends PokerRuleable {
 
 	public Hand(Card card1, Card card2, Card card3, Card card4, Card card5) {
 		this.card1 = card1;
