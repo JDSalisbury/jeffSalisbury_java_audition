@@ -68,4 +68,9 @@ public class HandTest {
 	public void shouldLookForFlush() {
 		assertThat(testHand.checkForFlush(), is(true));
 	}
+
+	@Test
+	public void shouldlookForStraight() {
+		assertThat(testHand.checkForStraight(), is(true));
+	}
 }
