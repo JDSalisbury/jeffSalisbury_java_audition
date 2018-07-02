@@ -67,4 +67,25 @@ public class InputReader {
 		return new Hand(card1, card2, card3, card4, card5);
 	}
 
+	public static void addHandToPlayerOne(List<PlayerOne> games, List<Hand> hands, String fileName) throws IOException {
+		Path pathToFile = Paths.get(fileName);
+		List<String> linesInFile = Files.readAllLines(pathToFile);
+		int indexLine = 0;
+
+		for (PlayerOne game : games) {
+			for (Hand hand : hands) {
+				if (linesInFile.get(indexLine).toString().contains(game.getName())
+						&& linesInFile.get(indexLine).toString().contains(hand.toString())
+						&& game.getHand().isEmpty()) {
+					game.addHand(hand);
+					if (indexLine < linesInFile.size() - 1)
+						indexLine++;
+				}
+
+			}
+
+		}
+
+	}
+
 }

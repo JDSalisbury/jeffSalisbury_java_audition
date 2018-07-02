@@ -4,6 +4,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertThat;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.junit.Test;
@@ -27,8 +28,13 @@ public class InputReaderTest {
 	}
 
 	@Test
-	public void shouldAddHandsToPlayer() {
+	public void shouldAddHandsToPlayer() throws IOException {
 		InputReader.addHandToPlayerOne(gamesBlack, handsBlack, "input.txt");
+		List<Hand> lastGameInInputFile = null;
+		for (PlayerOne games : gamesBlack) {
+			lastGameInInputFile = games.getHand();
+		}
+		assertThat(lastGameInInputFile.size(), is(1));
 
 	}
 }

@@ -6,4 +6,9 @@ public class PlayerOne extends Player {
 		super(name);
 	}
 
+	public String getName() {
+
+		return name;
+	}
+
 }
