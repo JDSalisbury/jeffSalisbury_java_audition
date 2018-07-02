@@ -1,6 +1,7 @@
 package com.audition.Objects;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -132,6 +133,25 @@ public abstract class PokerRuleable {
 			}
 		}
 		return hCount == 5 || dCount == 5 || sCount == 5 || cCount == 5;
+	}
+
+	public boolean checkForStraight() {
+		int checkValue = 0;
+		addCardsInHandToList();
+		cards.sort(Comparator.comparing(Card::getValue).reversed());
+		if (cards.get(0).getValue() - cards.get(1).getValue() == 1) {
+			checkValue++;
+		}
+		if (cards.get(1).getValue() - cards.get(2).getValue() == 1) {
+			checkValue++;
+		}
+		if (cards.get(2).getValue() - cards.get(3).getValue() == 1) {
+			checkValue++;
+		}
+		if (cards.get(3).getValue() - cards.get(4).getValue() == 1) {
+			checkValue++;
+		}
+		return checkValue == 4;
 	}
 
 }
