@@ -105,4 +105,10 @@ public abstract class PokerRuleable {
 		return occurences.containsValue(4);
 	}
 
+	public boolean checkForFullHouse() {
+		addCardsInHandToList();
+		addCardsToMapCounter();
+		return occurences.containsValue(2) && occurences.containsValue(3);
+	}
+
 }
