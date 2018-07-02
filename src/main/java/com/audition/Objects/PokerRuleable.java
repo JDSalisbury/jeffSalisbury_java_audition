@@ -99,4 +99,10 @@ public abstract class PokerRuleable {
 		return occurences.containsValue(3);
 	}
 
+	public boolean checkForFourOfAKind() {
+		addCardsInHandToList();
+		addCardsToMapCounter();
+		return occurences.containsValue(4);
+	}
+
 }

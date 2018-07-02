@@ -18,6 +18,7 @@ public class HandTest {
 	private Card card6 = new Card('K', 'D');
 	private Card card7 = new Card('Q', 'D');
 	private Card card8 = new Card('Q', 'S');
+	private Card card9 = new Card('Q', 'C');
 	private Hand testHand = new Hand(card1, card2, card3, card4, card5);
 
 	@Test
@@ -51,4 +52,15 @@ public class HandTest {
 		assertThat(threeOfAKind.checkForThreeOfAKind(), is(true));
 	}
 
+	@Test
+	public void shouldLookForFourOfAKind() {
+		Hand fourOfAKind = new Hand(card7, card4, card9, card8, card6);
+		assertThat(fourOfAKind.checkForFourOfAKind(), is(true));
+	}
+
+	@Test
+	public void shouldLookForFullHouse() {
+		Hand fullHouse = new Hand(card5, card6, card7, card8, card9);
+		assertThat(fullHouse.checkForFullHouse(), is(true));
+	}
 }
