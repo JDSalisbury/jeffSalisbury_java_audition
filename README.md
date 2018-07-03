@@ -5,6 +5,9 @@
 # Solution
 Using OOP and TDD, I Read an input.txt file and separated each player with their hand. Then played each hand against each other in Poker.
 
+![Eclipse running PokerKataApp](/images/inputAndConsole.png)
+
+
 
 Poker Rules:
 ```
