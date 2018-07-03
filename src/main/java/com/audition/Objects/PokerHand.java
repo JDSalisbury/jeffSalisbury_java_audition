@@ -65,14 +65,22 @@ public class PokerHand extends Hand {
 
 	public Card getNextHighestCard() {
 		addCardsInHandToList();
-		Card highCard = getHighCard();
 		char rank = 0;
 		char suit = 0;
+		int highCard = 0;
 		int almostHighCard = 0;
 		for (Card card : cards) {
-			if (card.getValue() >= almostHighCard && card.getValue() != highCard.getValue()) {
+			if (card.getValue() >= highCard) {
+				highCard = card.getValue();
+			}
+			if (card.getValue() >= almostHighCard && card.getValue() != highCard) {
+				almostHighCard = card.getValue();
+			}
+
+			if (card.getValue() == almostHighCard) {
 				rank = card.getRank();
 				suit = card.getSuit();
+
 			}
 		}
 		Card highestCard = new Card(rank, suit);

@@ -35,7 +35,7 @@ public class ComparHandsTest {
 		mark.addHand(testHandForPlayerOne);
 		tom.addHand(testHandForPlayerTwo);
 		CompareHands.comparePlayerHands(mark, tom);
-		assertThat(out.toString(), is("Mark wins. - with StraightFlush! KH high\n"));
+		assertThat(out.toString(), is("Mark wins - with StraightFlush! KH high\n"));
 	}
 
 	@Test
@@ -46,7 +46,7 @@ public class ComparHandsTest {
 		tom.addHand(testHandForPlayerOne);
 		mark.addHand(testHandForPlayerTwo);
 		CompareHands.comparePlayerHands(mark, tom);
-		assertThat(out.toString(), is("Tom wins. - with StraightFlush! KH high\n"));
+		assertThat(out.toString(), is("Tom wins - with StraightFlush! KH high\n"));
 	}
 
 	@Test
@@ -67,7 +67,7 @@ public class ComparHandsTest {
 		mark.addHand(testHandForPlayerOne);
 		tom.addHand(testHandForPlayerTwo);
 		CompareHands.comparePlayerHands(mark, tom);
-		assertThat(out.toString(), is("Mark Ties with Tom. - with StraightFlush! KH high. Mark wins with KH high\n"));
+		assertThat(out.toString(), is("Mark Ties with Tom - with StraightFlush! KH high Mark wins with KH high\n"));
 	}
 
 	@Test
@@ -78,7 +78,7 @@ public class ComparHandsTest {
 		mark.addHand(testHandForPlayerOne);
 		tom.addHand(testHandForPlayerTwo);
 		CompareHands.comparePlayerHands(mark, tom);
-		assertThat(out.toString(), is("Mark Ties with Tom. - with Four of a Kind! Mark wins with 13 high\n"));
+		assertThat(out.toString(), is("Mark Ties with Tom - with Four of a Kind! Mark wins with 13 high\n"));
 	}
 
 }

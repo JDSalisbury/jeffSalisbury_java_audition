@@ -20,9 +20,9 @@ public class CompareHands {
 	public static void decideVictor(PlayerOne name, PlayerTwo name2) {
 
 		if (playerOneHandValue > playerTwoHandValue) {
-			System.out.println(name.getName() + " wins. - with " + oneWinCon);
+			System.out.println(name.getName() + " wins - with " + oneWinCon);
 		} else if (playerOneHandValue < playerTwoHandValue) {
-			System.out.println(name2.getName() + " wins. - with " + twoWinCon);
+			System.out.println(name2.getName() + " wins - with " + twoWinCon);
 		} else if (playerOneHandValue == playerTwoHandValue) {
 			resolveTie(name, name2);
 
@@ -52,10 +52,10 @@ public class CompareHands {
 	private static void tieOnFourOfAKind(PlayerOne name, PlayerTwo name2) {
 		if (playerOneHandValue == 21 && playerTwoHandValue == 21) {
 			if (name.getFourOfAKindTieValue() > name2.getFourOfAKindTieValue()) {
-				System.out.println(name.getName() + " Ties with " + name2.getName() + ". - with " + oneWinCon + " "
+				System.out.println(name.getName() + " Ties with " + name2.getName() + " - with " + oneWinCon + " "
 						+ name.getName() + " wins with " + name.getFourOfAKindTieValue() + " high");
 			} else if (name.getFourOfAKindTieValue() < name2.getFourOfAKindTieValue()) {
-				System.out.println(name2.getName() + " Ties with " + name.getName() + ". - with " + twoWinCon + " "
+				System.out.println(name2.getName() + " Ties with " + name.getName() + " - with " + twoWinCon + " "
 						+ name2.getName() + " wins with " + name2.getFourOfAKindTieValue() + " high");
 			} else if (name.getFourOfAKindTieValue() == name2.getFourOfAKindTieValue()) {
 				tieWithNothing(name, name2);
@@ -66,10 +66,10 @@ public class CompareHands {
 	private static void tieOnFullHouse(PlayerOne name, PlayerTwo name2) {
 		if (playerOneHandValue == 20 && playerTwoHandValue == 20) {
 			if (name.getThreeOfAKindTieValue() > name2.getThreeOfAKindTieValue()) {
-				System.out.println(name.getName() + " Ties with " + name2.getName() + ". - with " + oneWinCon + " "
+				System.out.println(name.getName() + " Ties with " + name2.getName() + " - with " + oneWinCon + " "
 						+ name.getName() + " wins with " + name.getThreeOfAKindTieValue() + " high");
 			} else if (name.getThreeOfAKindTieValue() < name2.getThreeOfAKindTieValue()) {
-				System.out.println(name2.getName() + " Ties with " + name.getName() + ". - with " + twoWinCon + " "
+				System.out.println(name2.getName() + " Ties with " + name.getName() + " - with " + twoWinCon + " "
 						+ name2.getName() + " wins with " + name2.getThreeOfAKindTieValue() + " high");
 			} else if (name.getThreeOfAKindTieValue() == name2.getThreeOfAKindTieValue()) {
 				tieWithNothing(name, name2);
@@ -92,10 +92,10 @@ public class CompareHands {
 	private static void tieOnThreeOfAKind(PlayerOne name, PlayerTwo name2) {
 		if (playerOneHandValue == 17 && playerTwoHandValue == 17) {
 			if (name.getThreeOfAKindTieValue() > name2.getThreeOfAKindTieValue()) {
-				System.out.println(name.getName() + " Ties with " + name2.getName() + ". - with " + oneWinCon + " "
+				System.out.println(name.getName() + " Ties with " + name2.getName() + " - with " + oneWinCon + " "
 						+ name.getName() + " wins with " + name.getThreeOfAKindTieValue() + " high");
 			} else if (name.getThreeOfAKindTieValue() < name2.getThreeOfAKindTieValue()) {
-				System.out.println(name2.getName() + " Ties with " + name.getName() + ". - with " + twoWinCon + " "
+				System.out.println(name2.getName() + " Ties with " + name.getName() + " - with " + twoWinCon + " "
 						+ name2.getName() + " wins with " + name2.getThreeOfAKindTieValue() + " high");
 			} else if (name.getThreeOfAKindTieValue() == name2.getThreeOfAKindTieValue()) {
 				tieWithNothing(name, name2);
@@ -106,10 +106,10 @@ public class CompareHands {
 	private static void tieOn2Pair(PlayerOne name, PlayerTwo name2) {
 		if (playerOneHandValue == 16 && playerTwoHandValue == 16) {
 			if (name.get2PairTieValue() > name2.get2PairTieValue()) {
-				System.out.println(name.getName() + " Ties with " + name2.getName() + ". - with " + oneWinCon + " "
+				System.out.println(name.getName() + " Ties with " + name2.getName() + " - with " + oneWinCon + " "
 						+ name.getName() + " wins with " + name.get2PairTieValue() + " high");
 			} else if (name.get2PairTieValue() < name2.get2PairTieValue()) {
-				System.out.println(name2.getName() + " Ties with " + name.getName() + ". - with " + twoWinCon + " "
+				System.out.println(name2.getName() + " Ties with " + name.getName() + " - with " + twoWinCon + " "
 						+ name2.getName() + " wins with " + name2.get2PairTieValue() + " high");
 			} else if (name.get2PairTieValue() == name2.get2PairTieValue()) {
 				tieWithNothing(name, name2);
@@ -120,10 +120,10 @@ public class CompareHands {
 	private static void tieOnPair(PlayerOne name, PlayerTwo name2) {
 		if (playerOneHandValue == 15 && playerTwoHandValue == 15) {
 			if (name.getPairTieValue() > name2.getPairTieValue()) {
-				System.out.println(name.getName() + " Ties with " + name2.getName() + ". - with " + oneWinCon + " "
+				System.out.println(name.getName() + " Ties with " + name2.getName() + " - with " + oneWinCon + " "
 						+ name.getName() + " wins with " + name.getPairTieValue() + " high");
 			} else if (name.getPairTieValue() < name2.getPairTieValue()) {
-				System.out.println(name2.getName() + " Ties with " + name.getName() + ". - with " + twoWinCon + " "
+				System.out.println(name2.getName() + " Ties with " + name.getName() + " - with " + twoWinCon + " "
 						+ name2.getName() + " wins with " + name2.getPairTieValue() + " high");
 			} else if (name.getPairTieValue() == name2.getPairTieValue()) {
 				tieWithNothing(name, name2);
@@ -137,10 +137,10 @@ public class CompareHands {
 		playerOneTieHandValue = name.getHighCardInHand().getValue();
 		playerTwoTieHandValue = name2.getHighCardInHand().getValue();
 		if (playerOneTieHandValue > playerTwoTieHandValue) {
-			System.out.println(name.getName() + " Ties with " + name2.getName() + ". - with " + oneWinCon + ". "
+			System.out.println(name.getName() + " Ties with " + name2.getName() + " - with " + oneWinCon + " "
 					+ name.getName() + " wins with " + name.getHighCardInHand() + " high");
 		} else if (playerOneTieHandValue < playerTwoTieHandValue) {
-			System.out.println(name2.getName() + " Ties with " + name.getName() + ". - with " + twoWinCon + ". "
+			System.out.println(name2.getName() + " Ties with " + name.getName() + " - with " + twoWinCon + " "
 					+ name2.getName() + " wins with " + name2.getHighCardInHand() + " high");
 		} else if (playerOneTieHandValue == playerTwoTieHandValue && playerOneTieHandValue > 0
 				&& playerTwoTieHandValue > 0) {
@@ -155,10 +155,10 @@ public class CompareHands {
 		playerOneTieHandValue = name.getNextHighestCardInHand().getValue();
 		playerTwoTieHandValue = name2.getNextHighestCardInHand().getValue();
 		if (playerOneTieHandValue > playerTwoTieHandValue) {
-			System.out.println(name.getName() + " Ties with " + name2.getName() + ". - with " + oneWinCon + ". "
+			System.out.println(name.getName() + " Ties with " + name2.getName() + " - with " + oneWinCon + " "
 					+ name.getName() + " wins with " + name.getNextHighestCardInHand() + " high");
 		} else if (playerOneTieHandValue < playerTwoTieHandValue) {
-			System.out.println(name2.getName() + " Ties with " + name2.getName() + ". - with " + twoWinCon + ". "
+			System.out.println(name2.getName() + " Ties with " + name.getName() + " - with " + twoWinCon + " "
 					+ name2.getName() + " wins with " + name2.getNextHighestCardInHand() + " high");
 		} else if (playerOneTieHandValue == playerTwoTieHandValue) {
 			System.out.println("Tie.");
